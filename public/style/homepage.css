@@ -1,0 +1,353 @@
+/* -------------------------- Hero Page --------------------------------------- */
+
+.hero-page {
+  padding-top: 5rem;
+  display: flex;
+  height: 100vh;
+}
+
+.hero-page__img {
+  width: 40%;
+  background-image: url(/images/hero-page.avif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-page__text {
+  width: 60%;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero-page__text-header {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.hero-page__text-body {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.hero-page__text-btns a {
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  transition: all 0.3s linear;
+}
+
+.hero-page__btn-primary {
+  background-color: var(--accent-color);
+  color: var(--primary-color-dark);
+}
+
+.hero-page__btn-primary:hover {
+  color: var(--accent-color);
+  background-color: var(--primary-color-dark);
+}
+
+.hero-page__btn-alt {
+  color: var(--accent-color);
+  background-color: var(--primary-color-dark);
+}
+
+.hero-page__btn-alt:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color-dark);
+}
+
+@media (max-width: 992px) {
+  .hero-page__text {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-page {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    min-height: 100vh;
+    height: auto;
+  }
+  .hero-page__img {
+    width: 100%;
+    height: 13rem;
+  }
+  .hero-page__text {
+    width: 100%;
+  }
+  .hero-page__text-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .hero-page__text-body {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .hero-page__text-btns a {
+    display: block;
+    margin: 1rem 0;
+  }
+}
+
+/* -------------------------- Sections --------------------------------------- */
+.homepage-section {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-color-light),
+    var(--light-color)
+  );
+  min-height: 100vh;
+  width: 90%;
+  margin: 10rem auto;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage-section h2 {
+  color: var(--white);
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.homepage-section h2:before,
+.homepage-section h2:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: var(--white);
+}
+
+.homepage-section h2:before {
+  width: 15rem;
+  height: 3px;
+  transform: translateX(-50%);
+}
+
+.homepage-section h2:after {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.homepage-section h2 i {
+  color: var(--primary-color-dark);
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+/* -------------------------- Why-special Sections --------------------------------------- */
+.special-points {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.point-item {
+  width: 22.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--white);
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color-dark);
+  border-radius: 1rem;
+}
+
+.point-item__number {
+  width: 10rem;
+  height: 10rem;
+  font-size: 3rem;
+  font-weight: 900;
+  border-radius: 50%;
+  border: 2rem solid var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.point-item__header {
+  text-transform: capitalize;
+}
+
+.point-item__header i {
+  color: var(--accent-color);
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.point-item__details {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 992px) {
+  .special-points {
+    flex-wrap: wrap;
+  }
+
+  .point-item {
+    width: 45%;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .point-item {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+
+/* -------------------------- Gallery Sections --------------------------------------- */
+.gallery-text {
+  color: var(--white);
+  margin: auto;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.gallery-carousel {
+  margin: auto;
+  width: 75%;
+  flex: 1;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Animation and Auto-play */
+@keyframes carousel-animation {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.carousel-slide {
+  animation: carousel-animation 5s infinite;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .gallery-carousel {
+    margin-top: 5rem;
+  }
+}
+
+/* -------------------------- Testimonials Sections --------------------------------------- */
+.testimonials-details {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.testimonials-details .testimonial {
+  margin-top: 4rem;
+  border: 4px solid var(--primary-color-dark);
+  border-radius: 1rem;
+  width: 45%;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonials-details .testimonial .testimonial-text {
+  position: relative;
+  padding: 3rem;
+  font-size: 1.2rem;
+  text-align: justify;
+  overflow: hidden;
+  height: 70%;
+}
+
+.testimonials-details .testimonial .testimonial-text .quote {
+  position: absolute;
+  font-size: 1.5rem;
+}
+
+.testimonials-details .testimonial .left-quote {
+  top: 1rem;
+  left: 1rem;
+}
+
+.testimonials-details .testimonial .right-quote {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.testimonials-details .testimonial .testimonial-person {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonials-details .testimonial .testimonial-person span {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.testimonials-details .testimonial .testimonial-person img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+@media(max-width:992px){
+    .testimonials-details .testimonial{
+        width: 90%;
+        margin: 2rem auto;
+    }
+}

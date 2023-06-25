@@ -1,0 +1,42 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/main.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"dashboard",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+                <div class="dashboard-overview">
+                    <div class="overview-card">
+                        <h3>Total Orders <span class="overview-card-icon"></h3>
+                        <p class="overview-value">1,000,000<span class="overview-card-icon"><ion-icon name="fast-food-outline"></ion-icon></span></h3></p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Pending Orders <span class="overview-card-icon"></h3>
+                        <p class="overview-value pending">10<span class="overview-card-icon"><ion-icon name="reload-outline"></ion-icon></span></h3></p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>ready Orders <span class="overview-card-icon"></h3>
+                        <p class="overview-value ready">25<span class="overview-card-icon"><ion-icon name="checkmark-outline"></ion-icon></span></h3></p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>delivered Orders <span class="overview-card-icon"></h3>
+                        <p class="overview-value delivered">450<span class="overview-card-icon"><ion-icon name="checkmark-done-outline"></ion-icon></span></p>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Cancelled Orders <span class="overview-card-icon"></h3>
+                        <p class="overview-value cancelled">15 <span class="overview-card-icon"><ion-icon name="thumbs-down-outline"></ion-icon></span></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+        ></script>
+    </body>
+</html>

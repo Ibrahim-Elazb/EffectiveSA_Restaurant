@@ -1,0 +1,64 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/messages.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <script defer src="/scripts/dashboard/messages.js"></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"messages",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+                <div class="messages-section">
+          <h1 class="section-header messages-section__header"><span><ion-icon name="chatbox-ellipses-outline"></ion-icon></span> Client Messages</h1>
+          <div class="show-only-read__container">
+            <input
+              type="checkbox"
+              id="show-only-unread"
+              name="unread"
+              value="unread"
+            />
+            <label for="show-only-unread">Only show Unread Messages</label>
+          </div>
+          <div class="message-list" data-messages_count="<%=messagesCount%>">
+            <% messages.forEach((item, index) => { %>
+                <div id="message-<%=item.id%>" class="message <%= ( item.has_read) ? 'read' : 'unread' %>">
+              <h3><%=item.subject%></h3>
+               <span class="message-sender">From : <%=item.name%></span>
+              <p class="message-content">
+                <%=item.message%>
+              </p>
+              <p class="message-date"><%=item.date%></p>
+              <div class="message-actions">
+                <a href="mailto:<%=item.email%>" class="btn-contact"
+                  ><ion-icon name="send-outline"></ion-icon
+                ></a>
+                <a href="tel:<%=item.phone%>" class="btn-contact"
+                  ><ion-icon name="call-outline"></ion-icon
+                ></a>
+                <% if (item.has_read) { %>
+                <button class="btn-mark-read inactive" data-message_id="<%=item.id%>" disabled>
+                  <ion-icon name="mail-open-outline"></ion-icon>
+                </button>
+                <% } else { %>
+                <button class="btn-mark-read" data-message_id="<%=item.id%>" >
+                  <ion-icon name="mail-outline"></ion-icon>
+                </button>
+                <% } %>
+                <button class="btn-delete">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+                <%})%>
+              </div>
+              <button class="load-more-btn">
+                <ion-icon name="download-outline"></ion-icon> Load More
+              </button>
+        </div>
+            </main>
+        </div>
+    </body>
+</html>

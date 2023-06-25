@@ -1,0 +1,150 @@
+/* -------------------------- about us Sections --------------------------------------- */
+main {
+  padding-top: 5rem;
+}
+
+.hero-img {
+  width: 100%;
+  height: 20rem;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-us {
+  background-image: linear-gradient(
+    to bottom,
+    var(--primary-color-light),
+    var(--light-color)
+  );
+  min-height: 100vh;
+  width: 90%;
+  margin: auto;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-us h2 {
+  color: var(--white);
+  position: relative;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.about-us h2:before,
+.about-us h2:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: var(--white);
+}
+
+.about-us h2:before {
+  width: 15rem;
+  height: 3px;
+  transform: translateX(-50%);
+}
+
+.about-us h2:after {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-us h2 i {
+  color: var(--primary-color-dark);
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.about-us-text p {
+  clear: both;
+  padding: 2rem;
+  font-weight: 600;
+  text-align: justify;
+}
+
+.about-us-text img {
+  float: left;
+  margin-right: 3rem;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.about-us-info {
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.about-us-info__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-info__details span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.about-us-info__details span i {
+  margin-left: 1rem;
+}
+
+.about-us-info__details .socials a {
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s linear;
+}
+
+.about-us-info__details .socials a:hover {
+  transform: scale(1.5);
+}
+
+.about-us-info__details .socials a i {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+@media (max-width: 992px) {
+  .about-us-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-us-info__location {
+    transform: scale(0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-text img {
+    margin-left: 1rem;
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .about-us-info__details span {
+    font-size: 1rem;
+  }
+
+  .about-us-info__details .socials a i {
+    font-size: 1rem;
+  }
+}

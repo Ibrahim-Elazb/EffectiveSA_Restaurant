@@ -1,0 +1,110 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/orders.css" rel="stylesheet" />
+    <link href="/style/confirm-modal.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <script src="/scripts/dashboard/orders.js" defer></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"orders",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+                <div class="orders-section">
+                <h1 class="section-header orders-section__header">
+                    <span><ion-icon name="fast-food-outline"></ion-icon></span> Orders
+                </h1>
+                <div class="orders-grid" data-orders_count="<%= ordersCount %>">
+                    <div class="grid-header">Order ID</div>
+                    <div class="grid-header">Customer Name</div>
+                    <div class="grid-header">Order Price</div>
+                    <div class="grid-header">Order Status</div>
+                    <div class="grid-header">Actions</div>
+                    <% ordersList.forEach((item, index) => { %>
+                    <div id="<%= item.id %>" class="order-id"><%= item.id %></div>
+                    <div><%= item.client_name %></div>
+                    <div><%= item.total_price %> SAR</div>
+                    <div>
+                    <%= item.status %>
+                    <% if (item.status==="pending") { %>
+                      <span class="overview-card-icon pending"
+                        ><ion-icon name="reload-outline"></ion-icon
+                      ></span>
+                      <% } else if (item.status==="ready") { %>
+                          <span class="overview-card-icon ready"
+                        ><ion-icon name="checkmark-outline"></ion-icon
+                        ></span>
+                    <% } else if (item.status==="delivered") { %>
+                          <span class="overview-card-icon delivered"
+                        ><ion-icon name="checkmark-done-outline"></ion-icon></span>
+                    <% } else if (item.status==="cancelled") { %>
+                          <span class="overview-card-icon cancelled"
+                        ><ion-icon name="thumbs-down-outline"></ion-icon></span>
+                    <% } %>
+                    </div>
+                    <div>
+                    <% if (item.status==="pending") { %>
+                        <button class="btn-ready" data-order_id="<%= item.id %>">Ready</button>
+                        <button class="btn-cancel" data-order_id="<%= item.id %>">Cancel</button>
+                    <% } else if (item.status==="ready") { %>
+                        <button class="btn-delivered" data-order_id="<%= item.id %>">Deliver</button>
+                        <button class="btn-cancel" data-order_id="<%= item.id %>">Cancel</button>
+                    <% } else { %>
+                         <div></div>
+                    <% } %>
+                    </div>
+              <%})%>
+                </div>
+              <button class="load-more-btn">
+                <ion-icon name="download-outline"></ion-icon> Load More
+              </button>
+        <div class="order-modal">
+          <div class="order-modal__content">
+            <span class="close">&times;</span>
+            <h2>Order Details</h2>
+            <div class="order-details">
+              <div class="customer-details">
+                <h3>Customer Information</h3>
+                <div class="customer-details__container">
+                  <span><strong>Name:</strong></span>
+                  <span id="customerName"></span>
+                  <span><strong>Email:</strong></span>
+                  <span id="customerEmail"></span>
+                  <span><strong>Phone:</strong></span>
+                  <span id="customerPhone"></span>
+                  <span><strong>Vehicle Number:</strong></span>
+                  <span id="vehicleNumber"></span>
+                  <span><strong>Notes:</strong></span>
+                  <span id="customerNotes"></span>
+                </div>
+              </div>
+              <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="order-summary__container">
+                  <span><strong>Order Time:</strong></span>
+                  <span id="orderTime"></span>
+                  <span><strong>Total Price:</strong></span>
+                  <span id="totalPrice"></span>
+                  <span><strong>Status:</strong></span>
+                  <span id="orderStatus"></span>
+                </div>
+              </div>
+              <div class="order-items">
+                <h3>Order Items</h3>
+                <ul id="orderItems"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('../../partials/confirm-modal'); %>
+    </main>
+  </div>
+        <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    </body>
+</html>

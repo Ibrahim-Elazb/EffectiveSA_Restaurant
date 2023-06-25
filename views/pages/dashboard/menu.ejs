@@ -1,0 +1,160 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/menu.css" rel="stylesheet" />
+    <link href="/style/confirm-modal.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <script src="/scripts/dashboard/menu.js" defer></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"menu",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+                <div class="menu-section">
+          <h1 class="section-header menu-section__header">
+            <span class="icon-view"
+              ><ion-icon name="newspaper-outline"></ion-icon
+            ></span>
+            Restaurant Menu
+          </h1>
+          <button class="btn-add">
+            New Menu Item
+            <span class="icon-view"
+              ><ion-icon name="add-circle-outline"></ion-icon
+            ></span>
+          </button>
+          <div class="menu-grid">
+            <div class="grid-header">Menu Item ID</div>
+            <div class="grid-header">English Name</div>
+            <div class="grid-header">Arabic Name</div>
+            <div class="grid-header">Price</div>
+            <div class="grid-header">Discount</div>
+            <div class="grid-header">Menu Type</div>
+            <div class="grid-header"></div>
+            <% menuItems.forEach((item, index) => { %>
+            <div id="<%=item.id%>" class="menu-item-id"><%=item.id%></div>
+            <div><%=item.name_en%></div>
+            <div><%=item.name_ar%></div>
+            <div><%=item.price%></div>
+            <div><%=item.discount%></div>
+            <% if (language==="ar") { %>
+                <div><%=item.menu_type_ar%></div>
+            <% } else { %>
+                <div><%=item.menu_type_en%></div>
+            <% } %>
+            <div>
+              <button class="btn-edit"
+                data-menu_item_id="<%=item.id%>"
+                data-menu_item_name_en="<%=item.name_en%>"
+                data-menu_item_name_ar="<%=item.name_ar%>"
+                data-menu_item_price="<%=item.price%>"
+                data-menu_item_discount="<%=item.discount%>"
+                data-menu_item_menu_type="<%=item.menu_type%>">
+                <% if (language==="ar") { %>
+                تعديل
+                <% } else { %>
+                Edit
+                <% } %>
+                <span class="icon-view"
+                  ><ion-icon name="create-outline"></ion-icon
+                ></span>
+              </button>
+              <button class="btn-delete" 
+                data-menu_item_id="<%=item.id%>">
+                <% if (language==="ar") { %>
+                حذف
+                <% } else { %>
+                Delete
+                <% } %>
+                <span class="icon-view"
+                  ><ion-icon name="trash-outline"></ion-icon
+                ></span>
+              </button>
+            </div>
+                <%})%>
+          </div>
+        </div>
+
+        <div class="menu-item-modal">
+          <div class="menu-item-modal__content">
+            <span class="close">&times;</span>
+            <h2>Menu Item</h2>
+            <form id="menuItemForm">
+              <div class="form-group">
+                <label for="englishName">English Name:</label>
+                <input type="text" id="englishName" name="englishName" />
+                <div class="error-message" id="englishNameError"></div>
+              </div>
+              <div class="form-group">
+                <label for="arabicName">Arabic Name:</label>
+                <input type="text" id="arabicName" name="arabicName" />
+                <div class="error-message" id="arabicNameError"></div>
+              </div>
+              <div class="form-group">
+                <label for="price">Price:</label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  min="0"
+                  step="1"
+                />
+                <div class="error-message" id="priceError"></div>
+              </div>
+              <div class="form-group">
+                <label for="discount">Discount:</label>
+                <input
+                  type="number"
+                  id="discount"
+                  name="discount"
+                  min="0"
+                  step="0.01"
+                  value="0"
+                />
+                <div class="error-message" id="discountError"></div>
+              </div>
+              <div class="form-group">
+                <label for="menuType">Menu Type:</label>
+                <select id="menuType" name="menuType">
+                  <% menuTypes.forEach(element => { %>
+                    <option value="<%=element.id%>">
+                    <% if (language==="ar") { %>
+                     <%= element.name_ar %>
+                    <% } else { %>
+                     <%= element.name_en %>
+                    </option>
+                  <% }}) %>
+                </select>
+                <div class="error-message" id="menuTypeError"></div>
+              </div>
+              <div class="form-group">
+                <label for="menuImage">Menu Image:</label>
+                <input
+                  type="file"
+                  id="menuImage"
+                  name="menuImage"
+                  onchange="previewImage(event)"
+                />
+                <img
+                  id="imagePreview"
+                  src="#"
+                  alt="Preview"
+                  style="display: none; max-width: 3rem; height: 3rem; object-fit: cover;"
+                />
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <%- include('../../partials/confirm-modal'); %>
+        </main>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+.messages-section {
+  background-image: url(../../images/a_background_of_messages_dashboard_page.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin:auto;
+  padding: 2rem 0;
+}
+
+.messages-section__header {
+  font-size: 2rem;
+  font-weight: 800;
+  width: 50%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: var(--primary-color-light);
+  border: 2px solid var(--primary-color-dark);
+  box-shadow: 5px 5px 5px 2px var(--primary-color-dark);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.message-list {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 2rem;
+  color: var(--dark-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--light-color);
+}
+
+.message {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--dark-color);
+}
+
+.message h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.message-sender{
+border: 1px solid ;
+padding: .25rem;
+}
+
+.message-content {
+  margin: 10px 0;
+}
+
+.message-date {
+  color: var(--primary-color-dark);
+  font-size: 12px;
+}
+
+.message-actions {
+  margin-top: 10px;
+}
+
+.btn-contact,
+.btn-mark-read,
+.btn-delete {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-contact {
+  background-color: #3498db;
+  color: #fff;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.btn-mark-read {
+  background-color: #f39c12;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.btn-mark-read.inactive {
+  cursor: not-allowed;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.show-only-read__container {
+  padding: 2rem;
+  margin: 0 2rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-decoration: underline;
+  background-color: var(--light-color);
+}
+
+#show-only-unread {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
+
+}
+
+.load-more-btn {
+  cursor: pointer;
+  border: none;
+  display: block;
+  margin: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--accent-color);
+  color: var(--color-dark);
+}
+
+@media (max-width: 768px) {
+  .messages-section__header {
+    font-size: 1.3rem;
+    font-weight: 600;
+    width: 90%;
+  }
+
+  .message-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 0 1rem;
+    color: var(--light-color);
+  }
+
+  .show-only-read__container {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  #show-only-unread {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+  }
+
+  .btn-contact,
+  .btn-mark-read,
+  .btn-delete {
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+}

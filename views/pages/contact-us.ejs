@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<% if (language==="ar") { %>
+<html lang="ar" dir="rtl"></html>
+  <head>
+    <%- include('../partials/head',{language}); %>
+    <link rel="stylesheet" href="/style/ar/contact-us.css" />
+<% } else { %>
+<html lang="en">
+    <head>
+    <%- include('../partials/head',{language}); %>
+    <link rel="stylesheet" href="/style/contact-us.css" />
+  <% } %>
+
+    <link rel="stylesheet" href="/style/confirm-modal.css" />
+    <script src="/scripts/contact-us.js" defer></script>
+    <title>EffectiveSA - <%= tagline %></title>
+  </head>
+  <body>
+     <%- include('../partials/header',{language}); %>
+     <%- include('../partials/confirm-modal'); %>
+    <main>
+      <div class="hero-img">
+        <img src="/images/contact-us.webp" alt="contact us" />
+      </div>
+      <section class="contact-us-section">
+        <div class="contact-us__heading">
+          <i class="fa-solid fa-paper-plane"></i> <% if (language==="ar") { %>تواصل معنا<% } else { %> Contact Us <% } %>
+        </div>
+        <form id="contact-us__form">
+          <input
+            name="subject"
+            type="text"
+            placeholder="<% if (language==="ar") { %>الموضوع<% } else { %> Subject <% } %>"
+            id="subject-input"
+          />
+          <input
+            name="name"
+            type="text"
+            placeholder="<% if (language==="ar") { %>الاسم<% } else { %> Name <% } %>"
+            id="name-input"
+          />
+          <input
+            name="email"
+            type="email"
+             placeholder="<% if (language==="ar") { %>الايميل<% } else { %> Email <% } %>"
+            id="email-input"
+          />
+          <input
+            name="phone"
+            type="tel"
+            placeholder="<% if (language==="ar") { %>الهاتف<% } else { %> Phone <% } %>"
+            id="phone-input"
+          />
+          <textarea
+            name="message"
+             placeholder="<% if (language==="ar") { %>الرساله<% } else { %> Message <% } %>"
+            cols="30"
+            rows="10"
+            id="message-text"
+          ></textarea>
+          <button id="form-submit-btn" type="submit"><% if (language==="ar") { %>ارسال<% } else { %> Submit <% } %></button>
+        </form>
+      </section>
+    </main>
+    <%- include('../partials/footer',{language}); %>
+  </body>
+</html>

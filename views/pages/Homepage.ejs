@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<% if (language==="ar") { %>
+<html lang="ar" dir="rtl"></html>
+<head>
+  <%- include('../partials/head',{language}); %>
+  <link rel="stylesheet" href="/style/ar/homepage.css" />
+  <% } else { %>
+  <html lang="en">
+    <head>
+      <%- include('../partials/head',{language}); %>
+      <link rel="stylesheet" href="/style/homepage.css" />
+      <% } %>
+      <script src="/scripts/homapage.js" defer></script>
+
+      <title>EffectiveSA - <%= tagline %></title>
+    </head>
+    <body>
+      <%- include('../partials/header',{language}); %>
+      <main>
+        <section class="hero-page">
+          <div class="hero-page__text">
+            <h1 class="hero-page__text-header">
+              <% if (language==="ar") { %> طعام لذيذ <% } else { %> Delicious
+              food <% } %>
+            </h1>
+            <p class="hero-page__text-body">
+              <% if (language==="ar") { %> إن كنت تبحث عن مأكولات رائعة أو كنت
+              تبحث عن الذوق الرفيع أو كنت كنت تبحث عن الجودة العالية فمكاننا هو
+              اختيارك.<% } else { %> If you are looking for great food, you are
+              looking for good taste, or you are looking for high quality, then
+              our place is your choice. <% } %>
+            </p>
+            <div class="hero-page__text-btns">
+              <a class="hero-page__btn-primary" href="/menu">
+                <% if (language==="ar") { %> قائمة الطعام <% } else { %> Our
+                Menu <% } %></a
+              >
+              <a class="hero-page__btn-alt" href="/about-us"
+                ><% if (language==="ar") { %> من نحن؟<% } else { %> About Us <%
+                } %></a
+              >
+            </div>
+          </div>
+          <div class="hero-page__img"></div>
+        </section>
+        <section class="homepage-section why-special">
+          <h2 class="section-heading">
+            <% if (language==="ar") { %> ما هو المميز لدينا ؟
+            <i class="fa-solid fa-medal"></i> <% } else { %>
+            <i class="fa-solid fa-medal"></i> what makes us special <% } %>
+          </h2>
+          <ul class="special-points">
+            <li class="point-item">
+              <span class="point-item__number">1</span>
+              <h3 class="point-item__header">
+                <i class="fa-solid fa-circle-check"></i>
+                <% if (language==="ar") { %> جودة الطعام<% } else { %> Food
+                quality <% } %>
+              </h3>
+              <p class="point-item__details">
+                <% if (language==="ar") { %> يتم استخدام المكونات الطازجة
+                والمحلية في تحضير الاصناف، مما يعطي نكهة فريدة وجودة عالية لكل
+                طبق<% } else { %> Fresh and local ingredients are used in
+                preparing the dishes, giving a unique flavor and high quality to
+                each dish<% } %>
+              </p>
+            </li>
+            <li class="point-item">
+              <span class="point-item__number">2</span>
+              <h3 class="point-item__header">
+                <i class="fa-solid fa-circle-check"></i><% if (language==="ar")
+                { %> الخدمة الممتازة<% } else { %>Excellent service <% } %>
+              </h3>
+              <p class="point-item__details">
+                <% if (language==="ar") { %> يتميز المطعم بخدمته السريعة
+                والمتفانية التي تجعل العملاء يشعرون بالراحة والاسترخاء <% } else
+                { %>The restaurant is characterized by its fast and dedicated
+                service that makes customers feel comfortable and relaxed <% }
+                %>
+              </p>
+            </li>
+            <li class="point-item">
+              <span class="point-item__number">3</span>
+              <h3 class="point-item__header">
+                <i class="fa-solid fa-circle-check"></i><% if (language==="ar")
+                { %> الجو الراقي والمريح<% } else { %> Upscale and comfortable
+                atmosphere <% } %>
+              </h3>
+              <p class="point-item__details">
+                <% if (language==="ar") { %> يتميز مطعم ايفكتف بجوه الهادئ
+                والأنيق والمريح، مما يجعله المكان المثالي للاستمتاع بتجربة تناول
+                الطعام الرائعة <% } else { %> The restaurant has a quiet,
+                elegant and comfortable atmosphere, which makes it the perfect
+                place to enjoy a wonderful dining experience <% } %>
+              </p>
+            </li>
+            <li class="point-item">
+              <span class="point-item__number">4</span>
+              <h3 class="point-item__header">
+                <i class="fa-solid fa-circle-check"></i><% if (language==="ar")
+                { %> القائمة المتنوعة<% } else { %> Diverse menu <% } %>
+              </h3>
+              <p class="point-item__details">
+                <% if (language==="ar") { %> يقدم المطعم قائمة طعام شاملة
+                ومتنوعة تضم الاصناف لذيذة ومتنوعة من مختلف المطابخ العالمية <% }
+                else { %> The restaurant offers a comprehensive and varied menu
+                that includes delicious and varied items from various
+                international cuisines <% } %>
+              </p>
+            </li>
+          </ul>
+        </section>
+        <section class="homepage-section gallery">
+          <h2 class="section-heading">
+            <% if (language==="ar") { %> معرض صور
+            <i class="fa-solid fa-photo-film"></i><% } else { %><i
+              class="fa-solid fa-photo-film"
+            ></i>
+            Gallery <% } %>
+          </h2>
+          <p class="gallery-text">
+            <% if (language==="ar") { %> يقدم مطعم ايفكتف قائمة طعام شاملة
+            ومتنوعة، تضم اصناف لذيذة ومتنوعة من مختلف المطابخ العالمية <% } else
+            { %>Our Restaurant offers a comprehensive and varied menu, which
+            includes delicious and varied items from various international
+            cuisines<% } %>
+          </p>
+          <div class="gallery-carousel">
+            <div class="carousel-slide active">
+              <img src="/images/gallery_1.jpg" alt="Image 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/gallery_2.jpg" alt="Image 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/gallery_3.jpg" alt="Image 3" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/gallery_4.jpg" alt="Image 3" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/gallery_5.jpg" alt="Image 3" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/gallery_6.jpg" alt="Image 3" />
+            </div>
+          </div>
+        </section>
+        <section class="homepage-section testmonials">
+          <h2 class="section-heading">
+            <% if (language==="ar") { %>اراء العملاء
+            <i class="fa-solid fa-heart"></i><% } else { %><i
+              class="fa-solid fa-heart"
+            ></i>
+            Testmonials <% } %>
+          </h2>
+          <div class="testimonials-details">
+            <div class="testimonial">
+              <blockquote class="testimonial-text">
+                <span class="quote left-quote"
+                  ><i class="fa-solid fa-quote-left"></i
+                ></span>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Perspiciatis, quos reprehenderit? Itaque saepe perferendis
+                temporibus?
+                <span class="quote right-quote"
+                  ><i class="fa-solid fa-quote-right"></i
+                ></span>
+              </blockquote>
+              <div class="testimonial-person">
+                <img src="/images/testimonial_1.jpg" alt="person 1" />
+                <span>Mohamed Ahmed</span>
+              </div>
+            </div>
+            <div class="testimonial">
+              <blockquote class="testimonial-text">
+                <span class="quote left-quote"
+                  ><i class="fa-solid fa-quote-left"></i
+                ></span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta
+                nihil assumenda fugiat aliquam ad alias non obcaecati excepturi
+                quam esse.
+                <span class="quote right-quote"
+                  ><i class="fa-solid fa-quote-right"></i
+                ></span>
+              </blockquote>
+              <div class="testimonial-person">
+                <img src="/images/testimonial_2.jpeg" alt="person 2" />
+                <span>Mona Ibrahim</span>
+              </div>
+            </div>
+            <div class="testimonial">
+              <blockquote class="testimonial-text">
+                <span class="quote left-quote"
+                  ><i class="fa-solid fa-quote-left"></i
+                ></span>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
+                doloribus aspernatur molestias optio? Cum eius asperiores
+                commodi ducimus, doloremque obcaecati quaerat ut vel voluptate
+                aliquid et ex, vero nesciunt odio, laudantium quae harum
+                veritatis.
+                <span class="quote right-quote"
+                  ><i class="fa-solid fa-quote-right"></i
+                ></span>
+              </blockquote>
+              <div class="testimonial-person">
+                <img src="/images/testimonial_3.jpg" alt="person 3" />
+                <span>Asmaa Ali</span>
+              </div>
+            </div>
+            <div class="testimonial">
+              <blockquote class="testimonial-text">
+                <span class="quote left-quote"
+                  ><i class="fa-solid fa-quote-left"></i
+                ></span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                aliquid doloremque repellendus placeat blanditiis facilis.
+                Placeat vel beatae id, aperiam est odio eos voluptatum
+                consectetur? Dolorem labore eaque sapiente excepturi?
+                <span class="quote right-quote"
+                  ><i class="fa-solid fa-quote-right"></i
+                ></span>
+              </blockquote>
+              <div class="testimonial-person">
+                <img src="/images/testimonial_4.jpg" alt="person 4" />
+                <span>Mai khaled</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <%- include('../partials/footer',{language}); %>
+    </body>
+  </html>
+</head>

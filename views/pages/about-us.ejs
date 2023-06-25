@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<% if (language==="ar") { %>
+<html lang="ar" dir="rtl"></html>
+  <head>
+    <%- include('../partials/head',{language}); %>
+    <link rel="stylesheet" href="/style/ar/about-us.css" />
+<% } else { %>
+<html lang="en">
+    <head>
+    <%- include('../partials/head',{language}); %>
+    <link rel="stylesheet" href="/style/about-us.css" />
+  <% } %>
+    <script src="/scripts/about-us.js" defer></script>
+    <title>EffectiveSA -<%= tagline %></title>
+  </head>
+  <body>
+     <%- include('../partials/header',{language}); %>
+    <main>
+        <div class="hero-img">
+            <img src="images/about-us.jpg" alt="about us">
+        </div>
+      <section class="homepage-section about-us">
+        <h2 class="section-heading">
+          <i class="fa-solid fa-address-card"></i> <% if (language==="ar") { %>معلومات عنا <% } else { %>About Us<% } %>
+        </h2>
+        <div class="about-us-text">
+          <p>
+            <img src="/images/about-us_1.webp" alt="chef cooking" />
+            <% if (language==="ar") { %>
+             "Effective" المكان المثالي للاستمتاع بتجربة تناول طعام رائعة. في جو راقي ومريح.
+             <br>
+مطعم "Effective" هو مطعم يقدم مجموعة مميزة من الأطباق الشهية التي تشمل لحم بقري مشوي، وتركي مع بيض بكريمة مميزة، ودجاج إيطالي، وجمبري، وبيستو حلوم. يتميز المطعم بجوه الراقي والأنيق والخدمة السريعة والمتفانية التي تجعل تجربة تناول الطعام فيه لا تنسى. كما يقدم المطعم قائمة واسعة من النبيذ والمشروبات الأخرى لتكملة تجربة الطعام الفريدة.
+            <% } else { %>
+              "Effective" is the perfect place to enjoy a fine dining experience
+            in an elegant and relaxed atmosphere that offers a distinctive group
+            of delicious dishes that include roast beef, turkey with creamy
+            eggs, Italian chicken, shrimp, and halloumi pesto. The restaurant is
+            characterized by its sophisticated and elegant atmosphere and the
+            fast and attentive service that makes the dining experience
+            unforgettable. The restaurant also offers an extensive list of wines
+            and other beverages to complement the unique dining experience.<% } %>
+          </p>
+          <p>
+            <img src="/images/about-us_2.avif" alt="chef cooking" />
+            <% if (language==="ar") { %>
+              يمكن أن يوصف مطعم "Effective" على أنه واحد من أفضل المطاعم في المنطقة، حيث يقدم الطعام الرائع والخدمة الممتازة بأسعار معقولة. يتميز المطعم بأجوائه الهادئة والمريحة التي تجعله المكان المثالي للاسترخاء وتناول الطعام بعد يوم عمل طويل أو لقضاء الوقت مع العائلة والأصدقاء.يتم تحضير الأطباق في "Effective" باستخدام أفضل المكونات والمواد الغذائية الطازجة والمحلية، مما يعطي الطعام نكهة فريدة وجودة عالية. كما يقدم المطعم قائمة واسعة من الأطباق بما في ذلك الأطباق النباتية والخيارات الصحية لتلبية جميع الأذواق والاحتياجات الغذائية.بشكل عام، فإن مطعم "Effective" هو المكان المثالي للاستمتاع بتجربة تناول طعام رائعة في جو راقي ومريح .
+              <% } else { %>
+              "Effective" can best be described as one of the best restaurants in
+            the area, offering great food and excellent service at reasonable
+            prices. The restaurant is characterized by its quiet and comfortable
+            atmosphere that makes it the perfect place to relax and dine after a
+            long working day or to spend time with family and friends. The
+            dishes at "Effective" are prepared using the best ingredients and
+            fresh local food, which gives the food a unique flavor and high
+            quality. The restaurant also offers an extensive menu of dishes,
+            including vegetarian dishes and healthy options, to cater to all
+            tastes and dietary needs. Overall, "Effective" is the ideal place to
+            enjoy a wonderful dining experience in an elegant and comfortable
+            atmosphere.<% } %>
+            
+          </p>
+        </div>
+
+        <div class="about-us-info">
+          <div class="about-us-info__details">
+            <span
+              ><i class="fa-solid fa-envelope"></i> effectivesa1@gmail.com</span
+            >
+            <span
+              ><i class="fa-solid fa-location-dot"></i> 
+              <% if (language==="ar") { %>حي مهزور - المدينة المنورة - المملكة العربية السعودية<% } else { %> Mahzur District, Al
+              Madinah Al Munawwarah, Saudi Arabia<% } %>
+              </span>
+            <span><i class="fa-solid fa-phone"></i> 0564117070</span>
+            <div class="socials">
+              <a
+                href="https://www.facebook.com/people/%D9%81%D8%B9%D8%A7%D9%84-%D9%84%D9%84%D9%85%D8%A3%D9%83%D9%88%D9%84%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D9%85%D8%B4%D8%B1%D9%88%D8%A8%D8%A7%D8%AA/pfbid031e4JozwSGPfzN8QuyKo3vqiHsWgD6Z2vwwGne6a8VTADDAELvxkSFvGm8bDzCu4Al/?mibextid=ZbWKwL"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a
+                href="https://api.whatsapp.com/send/?phone=966564117070&text&type=phone_number&app_absent=0"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a href="https://www.instagram.com/effective.sa/"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.tiktok.com/@effective.sa"
+                ><i class="fa-brands fa-tiktok"></i></i
+              ></a>
+            </div>
+          </div>
+          <div class="about-us-info__location">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2372.284124691531!2d39.65017559473251!3d24.442392591300713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bd956021bca5f5%3A0xca406cab6eef2212!2sMahzur%2C%20Al%20Madinah%20Al%20Munawwarah%2042319%2C%20Saudi%20Arabia!5e0!3m2!1sen!2seg!4v1683475364111!5m2!1sen!2seg"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('../partials/footer',{language}); %>
+  </body>
+</html>

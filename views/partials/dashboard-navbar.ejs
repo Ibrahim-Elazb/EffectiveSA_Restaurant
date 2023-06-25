@@ -1,0 +1,89 @@
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-list__item">
+            <a class="nav-list__item-container">
+              <span class="nav-list__item-icon"
+                ><img
+                  class="nav-list__item-icon_logo"
+                  src="/images/logo_primary_dark.png"
+                  alt="logo"
+              /></span>
+              <span class="nav-list__item-text">effective</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'dashboard') ? 'active' : '' %>"  href="/dashboard">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="home-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'messages') ? 'active' : '' %>" href="/dashboard/messages">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="chatbox-ellipses-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Messages</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'orders') ? 'active' : '' %>" href="/dashboard/orders">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="fast-food-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Orders</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'menu-types') ? 'active' : '' %>" href="/dashboard/menu-types">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="list-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Menu Types</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'menu') ? 'active' : '' %>" href="/dashboard/Menu">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="newspaper-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Menu</span>
+            </a>
+          </li>
+          <% if (role==="admin") { %>        
+            <li class="nav-list__item">
+              <a class="nav-list__item-container <%= (section === 'users') ? 'active' : '' %>" href="/dashboard/users">
+                <span class="nav-list__item-icon"
+                  ><ion-icon name="people-outline"></ion-icon
+                ></span>
+                <span class="nav-list__item-text">Users</span>
+              </a>
+            </li>
+          <% } %>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'settings') ? 'active' : '' %>" href="/dashboard/settings">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="settings-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Setting</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a class="nav-list__item-container <%= (section === 'password-change') ? 'active' : '' %>" href="/dashboard/password-change">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="lock-closed-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Password</span>
+            </a>
+          </li>
+          <li class="nav-list__item">
+            <a id="sign-out-btn" class="nav-list__item-container">
+              <span class="nav-list__item-icon"
+                ><ion-icon name="log-out-outline"></ion-icon
+              ></span>
+              <span class="nav-list__item-text">Sign out</span>
+            </a>
+          </li>
+        </ul>
+      </nav>

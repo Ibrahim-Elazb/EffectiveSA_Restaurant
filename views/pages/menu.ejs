@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<% if (language==="ar") { %>
+<html lang="ar" dir="rtl"></html>
+<head>
+  <%- include('../partials/head',{language}); %>
+  <link rel="stylesheet" href="/style/ar/menu.css" />
+  <% } else { %>
+  <html lang="en">
+    <head>
+      <%- include('../partials/head',{language}); %>
+      <link rel="stylesheet" href="/style/menu.css" />
+      <% } %>
+      <script src="/scripts/menu.js" defer></script>
+      <title>EffectiveSA - <%= tagline %></title>
+    </head>
+    <body>
+      <%- include('../partials/header',{language}); %>
+      <main>
+        <div class="hero-img">
+          <img src="images/menu_hero.jpg" alt="menu" />
+        </div>
+        <div class="restaurant-menu-container">
+          <% menuTypeList.forEach((type, index) => { %>
+          <section class="menu-list-section">
+            <h2 class="section-heading">
+              <i class="fa-solid fa-utensils"></i> 
+              <% if (language==="ar") { %>
+                <%= type.name_ar %>
+              <% } else { %>
+                <%= type.name_en %>
+              <% } %>
+            </h2>
+            <ul class="menu-list-category">
+              <% type.items.forEach((item, index) => { %>
+              <li class="menu-list__item">
+                <img
+                  class="item-image"
+                  src="<%= "/images/menu/"+item.image %>"
+                  alt="<%= "/images/menu/"+item.image %>"
+                />
+                <span class="item-title">
+                  <% if (language==="ar") { %>
+                    <%= item.name_ar %>
+                  <% } else { %>
+                    <%= item.name_en %>
+                  <% } %>
+                </span>
+                <span class="item-price"><%= item.price %> 
+                  <% if (language==="ar") { %>
+                    ر.س
+                  <% } else { %>
+                    SAR
+                  <% } %>
+                </span>
+                <a
+                  class="add-to-cart-btn"
+                  data-id="<%= item.id %>"
+                  data-name_en="<%= item.name_en %>"
+                  data-name_ar="<%= item.name_ar %>"
+                  data-price="<%= item.price %>"
+                  ><i class="fa-solid fa-cart-plus"></i
+                ></a>
+              </li>
+              <% }) %>
+            </section>
+          <% }) %>
+        </div>
+      </main>
+      <%- include('../partials/footer',{language}); %>
+    </body>
+  </html>
+</head>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<% if (language==="ar") { %>
+<html lang="ar" dir="rtl"></html>
+<head>
+  <%- include('../partials/head',{language}); %>
+  <link rel="stylesheet" href="/style/ar/orders.css" />
+  <% } else { %>
+  <html lang="en">
+    <head>
+      <%- include('../partials/head',{language}); %>
+      <link rel="stylesheet" href="/style/orders.css" />
+      <% } %>
+
+       <link rel="stylesheet" href="/style/confirm-modal.css" />
+       <link rel="stylesheet" href="/style/loading.css" />
+      <script src="/scripts/orders.js" defer></script>
+
+      <title>EffectiveSA - <%= tagline %></title>
+    </head>
+    <body>
+      <%- include('../partials/header',{language}); %>
+      <%- include('../partials/confirm-modal'); %>
+      <main>
+        <div class="hero-img">
+          <img src="images/order-hero.jpg" alt="order take away" />
+        </div>
+        <section class="order-container">
+          <div class="orders-section">
+            <div class="orders-section__heading">
+              <i class="fa-solid fa-receipt"></i>
+              <% if (language==="ar") { %> تفاصيل الطلبات <% } else { %> Order
+              Details <% } %>
+            </div>
+            <!-- <div class="cart-empty">No Items in the cart</div> -->
+            <div class="order-list">
+              <!-- --------------  Hint  --------------  use "order-list__item" if display is "flex" and remove it for "grid" -->
+              <!-- <div class="order-list__item">  
+              <label for="item_1">white coffee</label>
+              <div class="order-list__item-details">
+                <button class="add"><i class="fa-solid fa-plus"></i></button>
+                <input type="number" class="count" value="1" />
+                <button class="minus"><i class="fa-solid fa-minus"></i></button>
+              </div>
+              <div class="item-price">3 * 20 = (60) SAR</div>
+            </div> -->
+            </div>
+            <div class="total-price active">
+              <% if (language==="ar") { %> ر.س
+              <span class="total-price-value"></span> الحساب الكلي<% } else { %>
+              Total Price <span class="total-price-value"></span> SAR<% } %>
+            </div>
+          </div>
+          <section class="client-info">
+            <div class="client-info__heading">
+              <i class="fa-solid fa-address-card"></i> <% if (language==="ar") {
+              %> معلومات شخصية <% } else { %> Personal Information<% } %>
+            </div>
+            <form class="client-info__form">
+              <input type="text" name="client_name" placeholder="<% if (language==="ar") {%>الاسم<% } else { %> Name <% } %>" class="name-input" /> 
+              <input type="email" name="client_email" placeholder="<% if (language==="ar") { %>الايميل<% } else { %> Email <% } %>" class="email-input" /> 
+              <input type="tel" name="client_phone" placeholder="<% if (language==="ar") { %>الهاتف<% } else { %> Phone <% } %>" class="phone-input" /> 
+              <input type="text" name="client_vehicle" placeholder="<% if (language==="ar") { %>رقم السيارة<% } else { %> Vehicle Number <% } %>" class="vehicle-input" />
+              <textarea name="notes" placeholder="<% if (language==="ar") {%>ملاحظات<% } else { %> Notes <% } %>" cols="30" rows="10"></textarea>
+              <div class="client-info__form-footer">
+                <button class="form-submit-btn" type="submit">
+                  <% if (language==="ar") { %>ارسال<% } else { %> Submit <% } %>
+                </button>
+                <%- include('../partials/loading'); %>
+              </div>
+            </form>
+          </section>
+        </section>
+      </main>
+      <%- include('../partials/footer',{language}); %>
+    </body>
+  </html>
+</head>

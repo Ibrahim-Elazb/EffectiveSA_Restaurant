@@ -1,0 +1,140 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/users.css" rel="stylesheet" />
+    <link href="/style/confirm-modal.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <script src="/scripts/dashboard/users.js" defer></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"users",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+        <div class="users-section">
+          <h1 class="section-header users-section__header">
+            <span class="icon-view"
+              ><ion-icon name="people-outline"></ion-icon
+            ></span>
+            Users
+          </h1>
+          <button class="btn-add">
+            New User
+            <span class="icon-view"
+              ><ion-icon name="person-add-outline"></ion-icon
+            ></span>
+          </button>
+          <div class="users-grid">
+            <div class="grid-header">User ID</div>
+            <div class="grid-header">Name</div>
+            <div class="grid-header">Email</div>
+            <div class="grid-header">Phone</div>
+            <div class="grid-header">Start Day</div>
+            <div class="grid-header">role</div>
+            <div class="grid-header">Notes</div>
+            <div class="grid-header"></div>
+
+             <% usersList.forEach((item, index) => { %>
+            <div id="<%=item.id %>" class="user-id"><%=item.id %></div>
+            <div><%=item.name %></div>
+            <div><%=item.email %></div>
+            <div><%=item.phone %></div>
+            <div><%=item.start_working_day %></div>
+            <div><%=item.role %></div>
+            <div><%=item.notes %></div>
+            <div data-user-id="<%=item.id %>">
+              <button class="btn-edit"
+              data-user_id="<%=item.id %>"
+              data-user_name="<%=item.name %>"
+              data-user_email="<%=item.email %>"
+              data-user_phone="<%=item.phone %>"
+              data-user_start_working_day="<%=item.start_working_day %>"
+              data-user_role="<%=item.role %>"
+              data-user_notes="<%=item.notes %>">
+                <% if (language==="ar") { %>
+                تعديل
+                <% } else { %>
+                Edit
+                <% } %>
+                <span class="icon-view"
+                  ><ion-icon name="create-outline"></ion-icon
+                ></span>
+              </button>
+              <button class="btn-delete" data-user_id="<%=item.id %>">
+                 <% if (language==="ar") { %>
+                حذف
+                <% } else { %>
+                Delete
+                <% } %>
+                <span class="icon-view"
+                  ><ion-icon name="trash-outline"></ion-icon
+                ></span>
+              </button>
+            </div>
+             <%})%>
+          </div>
+        </div>
+
+        <div class="user-modal">
+          <div class="user-modal__content">
+            <span class="close">&times;</span>
+            <h2>User Information</h2>
+            <form id="userForm">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" />
+                <div class="error-message" id="nameError"></div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" />
+                <div class="error-message" id="emailError"></div>
+              </div>
+              <div class="form-group">
+                <label for="phone">phone:</label>
+                <input type="tel" id="phone" name="phone" />
+                <div class="error-message" id="phoneError"></div>
+              </div>
+              <div class="form-group password-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" />
+                <div class="error-message" id="passwordError"></div>
+              </div>
+              <div class="form-group password-container">
+                <label for="cfm-password">Confirm Password:</label>
+                <input type="password" id="cfm-password" name="cfm-password" />
+                <div class="error-message" id="cfm-passwordError"></div>
+              </div>
+              <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" />
+                <div class="error-message" id="dateError"></div>
+              </div>
+              <div class="form-group">
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                  <option value="admin">Admin</option>
+                  <option value="cashier" selected>Cashier</option>
+                </select>
+                <div class="error-message" id="roleError"></div>
+              </div>
+              <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea id="notes" name="notes"></textarea>
+              </div>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+
+        <%- include('../../partials/confirm-modal'); %>
+        </main>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>

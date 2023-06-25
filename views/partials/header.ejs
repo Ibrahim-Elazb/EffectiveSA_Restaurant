@@ -1,0 +1,44 @@
+<header>
+  <span class="logo-container"><img src="images/logo.png" alt="logo" /></span>
+  <span class="lang-choice"
+    ><% if (language==="ar") { %> EN <% } else { %> AR <% } %></span
+  >
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-btn">
+    <span class="menu-icon"></span>
+  </label>
+  <div class="menu-container">
+    <ul class="main-menu">
+      <li class="menu-item">
+        <a href="/Homepage"
+          ><% if (language==="ar") { %> الصفحة الرئيسية <% } else { %> HomePage
+          <% } %></a
+        >
+      </li>
+      <li class="menu-item">
+        <a href="/Menu"
+          ><% if (language==="ar") { %> القائمة <% } else { %> Menu <% } %></a
+        >
+      </li>
+      <li class="menu-item">
+        <a href="/About-Us"
+          ><% if (language==="ar") { %> معلومات عنا <% } else { %> About Us <% }
+          %></a
+        >
+      </li>
+      <li class="menu-item">
+        <a href="/Contact-Us"
+          ><% if (language==="ar") { %> تواصل معنا <% } else { %> Contact Us <%
+          } %></a
+        >
+      </li>
+    </ul>
+    <div class="cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <a href="/Orders"
+        ><% if (language==="ar") { %> طلباتي <% } else { %> My Cart <% } %></a
+      >
+      <span class="cart-item-count">0</span>
+    </div>
+  </div>
+</header>

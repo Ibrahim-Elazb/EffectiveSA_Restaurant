@@ -1,0 +1,93 @@
+    <%- include('../../partials/dashboard-head',{language}); %>
+
+    <link href="/style/dashboard/menu-types.css" rel="stylesheet" />
+    <link href="/style/confirm-modal.css" rel="stylesheet" />
+
+    <script src="/scripts/dashboard/shared-script.js" defer></script>
+    <script src="/scripts/dashboard/menu-types.js" defer></script>
+    <title>Dashboard - <%= tagline %></title>
+  </head>
+    <body>
+        <div class="container">
+            <%- include('../../partials/dashboard-navbar',{section:"menu-types",language,role:user.role}); %>
+            <main>
+                <%- include('../../partials/dashboard-header',{name:user.name,role:user.role}); %>
+                 <div class="menu-types-section">
+          <h1 class="section-header menu-types-section__header">
+            <span class="icon-view">
+              <ion-icon name="list-outline"></ion-icon>
+            </span>
+            Menu Types
+          </h1>
+          <button class="btn-add">
+            New Menu Type
+            <span class="icon-view">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </span>
+          </button>
+          <div class="menu-types-grid">
+            <div class="grid-header">Menu Type ID</div>
+            <div class="grid-header">English Name</div>
+            <div class="grid-header">Arabic Email</div>
+            <div class="grid-header"></div>
+            <% menuTypes.forEach((item, index) => { %>
+                <div id="<%=item.id%>" class="menu-type-id"><%=item.id%></div>
+                <div><%=item.name_en%></div>
+                <div><%=item.name_ar%></div>
+                <div data-menu-item-id="<%=item.id%>">
+                    <button class="btn-edit" data-id="<%=item.id%>" data-name_en="<%=item.name_en%>" data-name_ar="<%=item.name_ar%>">
+                        <% if (language==="ar") { %>
+                        تعديل
+                        <% } else { %>
+                        Edit
+                        <% } %>
+                        <span class="icon-view"
+                        ><ion-icon name="create-outline"></ion-icon
+                        ></span>
+                    </button>
+                    <button class="btn-delete" data-id="<%=item.id%>">
+                        <% if (language==="ar") { %>
+                        حذف
+                        <% } else { %>
+                        Delete
+                        <% } %>
+                        <span class="icon-view"
+                        ><ion-icon name="trash-outline"></ion-icon
+                        ></span>
+                    </button>
+                </div>
+            <%})%>
+          </div>
+        </div>
+
+        <div class="menu-type-modal">
+          <div class="menu-type-modal__content">
+            <span class="close">&times;</span>
+            <h2>Menu Item Information</h2>
+            <form id="menuTypeForm">
+              <div class="form-group">
+                <label for="name_en">English Name:</label>
+                <input type="text" id="name_en" name="name_en" />
+                <div class="error-message" id="name_enError"></div>
+              </div>
+              <div class="form-group">
+                <label for="name_ar">Arabic Name:</label>
+                <input type="text" id="name_ar" name="name_ar" />
+                <div class="error-message" id="name_arError"></div>
+
+              </div>
+
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <%- include('../../partials/confirm-modal'); %>
+      </main>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>
